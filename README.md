@@ -6,9 +6,7 @@ The purpose of this package is to abstract away PHP`s superglobals $_SERVER, $_P
 
 CookieJar and Session objects come with native encryption and will abstract the use of $_SESSION and $_COOKIE vars.
 
-`php
-
-<?php
+```php
 
 $env = new Enviroment();
 $req = new Request($env);
@@ -17,3 +15,4 @@ $res = new Response();
 $res->write('test...');
 $res->send();
 
+```
