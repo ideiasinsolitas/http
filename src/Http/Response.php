@@ -329,14 +329,17 @@ class Response
         $this->headers->set('content.encoding', 'chunked');
         $this->headers->set('content.type', 'text/html');
         $this->headers->set('connection', 'keep-alive');
-        flush();
-        ob_flush();
-
+        $this->flush();
         for ($i = 0; $i < 1000; $i++) {
             $this->dump($chunk);
-            flush();
-            ob_flush();
+            $this->flush();
         }
+    }
+
+    protected function flush()
+    {
+        flush();
+        ob_flush();
     }
 
     protected function dump($chunk)
